@@ -26,15 +26,15 @@ const navSlide = () => {
     //ToggleNav
     nav.classList.toggle("nav-active");
 
-    //Nav-links
+    //Animate Links
     navLinks.forEach((link, index) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("nav-active");
-        burger.classList.remove("toggle");
-      });
-      link.style.animation = `navLinkFade 0.5s ease forwards ${
-        index / 7 + 0.7
-      }s`;
+      if (link.style.animation) {
+        link.style.animation = "";
+      } else {
+        link.style.animation = `navLinkFade 0.5s ease forwards ${
+          index / 7 + 0.7
+        }s`;
+      }
     });
 
     //Burger animation
